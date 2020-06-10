@@ -106,6 +106,11 @@ xtradb_users:
     password: yolo
     priv: 'mydb.*:ALL'
     host: '192.168.1.%'
+    
+  - name: renkeju
+    password: test
+    priv: 'k3s.*:ALL'
+    host: "{{ hostvars[inventory_hostname]['ansible_' + xtradb_bind_interface]['ipv4']['network'] | regex_replace('(\\.0){0,2}\\.0$', '') }}.%"
 ```
 
 
