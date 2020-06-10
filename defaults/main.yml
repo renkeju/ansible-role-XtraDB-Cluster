@@ -1,6 +1,9 @@
 # roles/ansible-role-XtraDB-Cluster/defaults/main.yml
 ---
 
+# Xtradb RPM or DEB packages repository url
+xtradb_repo_url: https://mirrors.tuna.tsinghua.edu.cn/percona
+
 # Data directory
 xtradb_datadir: /var/lib/mysql
 
