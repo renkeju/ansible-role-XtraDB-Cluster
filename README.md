@@ -101,6 +101,11 @@ xtradb_users:
   - name: keystone
     password: KEYSTONE_DBPASS
     priv: 'keystone.*:SUPER'
+    
+  - name: clustercheck  ## haproxy Percona Clustercheck https://github.com/olafz/percona-clustercheck
+    priv: '*.*:GRANT,PROCESS'
+    password: clustercheck
+    host: "localhost"
 
   - name: cdelgehier
     password: yolo
