@@ -11,7 +11,7 @@ xtradb_wsrep_provider: /usr/lib/libgalera_smm.so
 xtradb_confdir: /etc/mysql/percona-xtradb-cluster.conf.d
 xtradb_config_file: "{{ xtradb_confdir }}/wsrep.cnf"
 xtradb_packages:
-  #- "percona-server-server-{{ xtradb_version }}"
-  - "percona-xtradb-cluster-{{ xtradb_version }}"
   - python3-mysqldb
+  - xinetd
+  - "percona-xtradb-cluster-{{ xtradb_version }}"
 ...
