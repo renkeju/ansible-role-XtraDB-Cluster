@@ -32,6 +32,13 @@
     - "{{ ansible_os_family }}.yml"
   tags: install
 
+- name: Change the /etc/services file by adding the following line on each node
+  lineinfile:
+    path: /etc/services
+    line: "mysqlchk        9200/tcp                # mysqlchk"
+    create: yes
+  tags: install
+
 - name: Install packages
   package:
     name: "{{ item }}"
