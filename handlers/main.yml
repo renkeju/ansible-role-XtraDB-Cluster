@@ -1,6 +1,11 @@
 # roles/ansible-role-XtraDB-Cluster/handlers/main.yml
 ---
 
+- name: restart xinetd
+  service:
+    name: xinetd
+    state: restarted
+
 - name: restart xtradb
   service:
     name: "{{ xtradb_service }}"

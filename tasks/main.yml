@@ -32,19 +32,20 @@
     - "{{ ansible_os_family }}.yml"
   tags: install
 
-- name: Change the /etc/services file by adding the following line on each node
-  lineinfile:
-    path: /etc/services
-    line: "mysqlchk        9200/tcp                # mysqlchk"
-    create: yes
-  tags: install
-
 - name: Install packages
   package:
     name: "{{ item }}"
     state: present
   with_items: "{{ xtradb_packages }}"
   tags: install
+
+- name: Change the /etc/services file by adding the following line on each node
+  lineinfile:
+    path: /etc/services
+    line: "mysqlchk        9200/tcp                # mysqlchk"
+    create: yes
+  tags: install
+  notify: restart xinetd
 
 - name: Ensure service is started
   service:
